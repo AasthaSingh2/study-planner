@@ -139,8 +139,6 @@ async def generate_study_plan(request: StudyPlanRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Mount the static files (React frontend)
-# app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="static")
 
 # Fallback to index.html for React Router or unmatched routes
 @app.get("/{full_path:path}")
