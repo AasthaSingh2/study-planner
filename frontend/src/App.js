@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Typography, Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import StudyPlanForm from './components/StudyPlanForm';
-import StudyPlanCalendar from './components/StudyPlanCalendar';
-import StudyPlanTable from './components/StudyPlanTable';
+import StudyPlanForm from './components/StudyPlanForm.tsx';
+import StudyPlanCalendar from './components/StudyPlanCalendar.tsx';
+import StudyPlanTable from './components/StudyPlanTable.tsx';
 
 // Create a theme instance
 const theme = createTheme({
