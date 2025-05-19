@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from datetime import datetime, timedelta
 from typing import List, Dict
 import os
@@ -135,4 +137,12 @@ async def generate_study_plan(request: StudyPlanRequest):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)) 
+        raise HTTPException(status_code=500, detail=str(e))
+
+# Mount the static files (React frontend)
+app.mount("/", StaticFiles(directory="../frontend/build", html=True), name="static")
+
+# Fallback to index.html for React Router or unmatched routes
+@app.get("/{full_path:path}")
+async def catch_all(full_path: str):
+    return FileResponse(os.path.join("../frontend/build", "index.html")) 
