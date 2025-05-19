@@ -141,6 +141,6 @@ async def generate_study_plan(request: StudyPlanRequest):
 
 
 # Fallback to index.html for React Router or unmatched routes
-@app.get("/{full_path:path}")
-async def catch_all(full_path: str):
-    return FileResponse(os.path.join("../frontend/build", "index.html")) 
+# @app.get("/{full_path:path}")
+# async def catch_all(full_path: str):
+#     return FileResponse(os.path.join("../frontend/build", "index.html")) 
